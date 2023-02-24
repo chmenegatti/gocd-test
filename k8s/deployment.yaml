@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: gocd
+  name: gocd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gocd
+  template:
+    metadata:
+      labels:
+        app: gocd
+    spec:
+      containers:
+      - name: gocd
+        image: chmenegatti/gocd-test:latest
+        ports:
+        - containerPort: 8080
