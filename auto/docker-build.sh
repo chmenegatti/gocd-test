@@ -1,6 +1,5 @@
 #! /bin/sh
 #build image
-VERSION=6
 docker build -t chmenegatti/gocd-test:v$VERSION ../.
 
 #login into docker-hub
