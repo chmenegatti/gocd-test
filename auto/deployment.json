@@ -1,0 +1,36 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "namespace": "meu-teste",
+    "name": "gocd-test"
+  },
+  "spec": {
+    "replicas": 3,
+    "selector": {
+      "matchLabels": {
+        "app": "gocd-test"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "gocd-test"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "gocd-test",
+            "image": "chmenegatti/gocd-test:latest",
+            "ports": [
+              {
+                "containerPort": 5050
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
